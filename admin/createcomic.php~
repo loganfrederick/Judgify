@@ -1,0 +1,30 @@
+<?php include'../layout.html';
+if ($_SESSION['level']>=50 && isset($_COOKIE["judgify_login"])) {
+	if (isset($_POST['title']) && isset($_POST['tags']) && isset($_POST['img'])) {
+		$name=escape_chars_trim($_POST['title']);
+		$tmp=explode('.',$_FILES['img']['name']);
+		$fileext=$tmp[count($tmp)-1];
+		$file_name=$_FILES["img"]["name"];
+		$file_name=str_replace(" ","_",$file_name);
+		
+		if (!in_array($fileext,$img_file_extensions)) {$page='admin/createcomic.php?msg=The%20file%20failed%20to%20upload%20because%20it%20was%20not%20an%20image.';}
+		else if(!is_numeric($_POST['post']) && !is_numeric($_POST['view']) && !is_numeric($_POST['topic'])) {$page="admin/createcomic.php?msg=The%20entry%20was%20not%20a%20number.";redirect($page);}
+		
+		$img=$comic_pic_upload_path.$file_name;
+		move_uploaded_file($_FILES['img']['tmp_name'],$img);
+		mysql_query("INSERT INTO `comics` (`time`,`title`,`comic`,`tags`) VALUES ('".time()."','".$name."','".$comic."','".$_POST['tags']."')");
+		$page="index.php";redirect($page);
+	}
+	else {
+		echo'<form action="admin/createcomic.php" method="post" enctype="multipart/form-data" class="form">
+		<fieldset>
+		<legend>Add Comic</legend>
+		<p>Comic Title: <input type="text" name="title" maxlength="30" /></p>
+		<p>Tags (Seperate by comma): <input type="text" name="tags" maxlength="2" /></p>
+		<p>Upload Comic: <input type="file" name="img" size=30></p>
+		<p><input type="submit" value="Submit" /></p></fieldset></form>';
+	}
+}
+else redirect();
+include'../footer.html';
+?>

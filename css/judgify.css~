@@ -1,0 +1,97 @@
+html { background: #FFFFFF; font-size: 90%;}
+body { width: 95%; margin: 0 auto; background-color: #FFFFFF;}
+a { color:#0000EE;text-decoration: none;}
+a:hover {color:#D4EAFF;background:#4096EE;}
+
+/*Header Style*/
+#head { background: #C3D9FF; color:#0000EE; width: 100%; margin: auto; margin-bottom: 20px; position: relative; top: 0;}
+
+#head h1 { margin: 0 7px;}
+div.postlist_head {text-align:center;font-size:200%;width:95%;background:#C3D9FF;clear:right;}
+
+/*Left Side Style*/
+#left { width: 200px; float: left; font-size: 105%; }
+#left dl { width: 95%; margin-left: 5px; margin-top: -2px;}
+#left dt { width: 100%; background: #C3D9FF; color:#0000EE; text-align: center; font-size: 130%; font-weight: bold;}
+#left dd { width: 100%; margin-left: -40px;}
+#left ul { list-style: none; width: 100%;}
+#left li { border-bottom: 1px #C3D9FF solid; text-align: center; border-right: solid 1px #C3D9FF;border-left: solid 1px #C3D9FF;}
+#left li a { text-decoration: none; display: block; color: #0000EE;background:#FFFFFF;}
+#left li a:hover{color:#D4EAFF;background:#4096EE;display: block;}
+#left a.leftlink { margin-left: 5px;}
+
+/*Main Content Style*/
+#main { background: #FFFFFF; margin-left: 220px;}
+h3.headline a {color:#000000;}
+h3.headline a:hover{color:#000000;background:#FFFFFF;}
+.homepost { background: #C3D9FF; margin-bottom: 15px;}
+.homepost h1 { margin: 5px 0 0 10px; color: #0000EE;}
+.homepost h3 { margin: 5px 0 0 10px; padding: 5px 0 0 5px;color: #000000; text-align: center;}
+.homepost p { margin: 5px 0 3px 10px; text-indent: 20px;}
+.homepost span { font-size: 85%; font-weight: bold; margin: 0 0 0 10px; color: #000099;}
+.homepost ul, .homepost ol { margin: -5px 0 0 0;}
+.homepost li { padding: 3px 0 0 0;}
+.split { width: 50%; float: left;}
+.split2 { width: 50%; float: right;}
+.announce { width: 100%; border: solid 2px; font-size: 105%; margin-bottom: 10px; text-align: center; color: #FF0000;}
+.box { width: 100%; border: solid 2px #4096FF; font-size: 105%; margin-bottom: 10px; text-align: center; color: #000000;}
+img {margin-top: 3px;border: none;}
+
+/*Forms*/
+form {margin-bottom: 5px;margin-top:10px;}
+form.form { width: 100%;}
+form.smallform {width: 50%; float: right;}
+
+/*Table Setting*/
+table { width: 98%; margin-bottom: 10px; border: 1px #C3D9FF solid;}
+table th { background: #C3D9FF;}
+
+table tr.color td {background:#C3D9FF;}
+
+table td.color { width: 40%; background: #C3D9FF;}
+table td.color2 {width: 25%;background:#C3D9FF;}
+table td.color a,table td.color2 a {color: #000000; display: block;}
+table td.color a:hover, table td.color2 a:hover {color: #FFFFFF;}
+
+table.catlist {background-color:#FFFFFF;margin-top:10px;}
+table.catlist td {width:20%;}
+table.catlist td a {display: block; border-right: #C3D9FF;border-left: #C3D9FF; position: inline;}
+table.catlist td a:hover {display: block;}
+
+/*DL Settings*/
+dl.center,dl.splitcenter { width: 95%;}
+dl.center dt,dl.splitcenter dt{ width: 100%; background: #C3D9FF; color:#0000EE; text-align: center; font-size: 130%; font-weight: bold;}
+dl.center dd,dl.splitcenter dd { width: 100%; margin-left: -40px;}
+dl.center ul,dl.splitcenter ul { list-style: none; width: 100%;}
+dl.center li,dl.splitcenter li { border-bottom: 1px #C3D9FF solid; text-align: center; border-right: solid 1px #C3D9FF;border-left: solid 1px #C3D9FF;}
+dl.center li a,dl.splitcenter a{ text-decoration: none; display: block; color: #0000EE;}
+dl.center li a:hover,dl.splitcenter a:hover {color:#D4EAFF;background:#4096EE;display: block;}
+
+dl.def {width: 95%;}
+dl.def dt {color:#000099; font-size: 105%; font-weight: bold;}
+dl.def dd {margin-top: -15px;}
+
+div.login_form {border: 1px #C3D9FF solid; margin-left: 40px; margin-right: -40px;}
+
+div#left dl dd form {margin-left: 5px;}
+
+div.postdetail {border:solid 1px #356AA0;width:94.75%;color:#000000;background:#84DAFF;text-indent:10px;}
+div.post {padding-top:5px;padding-bottom:5px;border-bottom:solid 1px #356AA0;border-left:solid 1px #356AA0;border-right:solid 1px #356AA0;width:94.75%;color:#000000;background:#C3D9FF;text-indent:10px;}
+
+dl.comment {background:#C3D9FF;width:100%;}
+dl.comment dt {color:#356AA0; margin-left: 20px;}
+
+/*Other*/
+span.req { color: #FF0000; font-size: 110%;}
+span.par { font-size: 80%; font-style: italic;}
+div.forum_right_menu {float:right;margin-top:-10px;}
+
+/*Javascript CSS*/
+div.reportform:not(:target) { display: none}
+div.reportform:target { display: block}
+div.commentform:not(:target) { display:none }
+div.commentform:target { display: block }
+
+/*Footer Style*/
+#footer { background:#C3D9FF;color:#0000EE; margin: auto; clear: both;width:100%;margin-top:15px;}
+#footer p {margin: 7px; margin-bottom: 0;}

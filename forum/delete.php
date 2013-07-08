@@ -1,0 +1,18 @@
+<?php include'../layout.html';
+
+if (isset($_GET['bid']) && isset($_GET['tid']) && isset($_GET['mid']) && $_SESSION['level']>=40 && $_GET['f']=="yes") {
+	$page='forum/closetopic.php?bid='.$board_id.'&tid='.$topic_id.'&mid='.$messages['message_id'].'&f=yes';redirect($page);
+}
+else if (isset($_GET['bid']) && isset($_GET['tid']) && isset($_GET['mid']) && $_SESSION['level']>=40) {
+	$bid=intval($_GET['bid']);$tid=intval($_GET['tid']);$mid=intval($_GET['mid']);$user=$_SESSION['id'];
+	//mysql_query("UPDATE `forums_messages` SET `message`=\"This message has been moderated\" WHERE `message_id`=$mid") or die(mysql_error());
+	mysql_query("DELETE FROM `forums_messages` WHERE `message_id`=$mid;") or die(mysql_error());
+	mysql_query("UPDATE `user` SET `num_posts`=`num_posts`-1 WHERE `id`=$user;") or die(mysql_error());
+	mysql_query("UPDATE `forums` SET num_posts=num_posts-1 WHERE `board_id`=$bid;") or die(mysql_error());
+	mysql_query("UPDATE `forums_topics` SET posts=posts-1 WHERE `topic_id`=$tid;") or die(mysql_error());
+	$page=$_SERVER['HTTP_REFERER'];redirect($page);
+}
+else echo'<p>There has been a problem processing your request. Try again.</p>';
+
+include'../footer.html';
+?>

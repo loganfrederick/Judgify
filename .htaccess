@@ -1,0 +1,30 @@
+RewriteEngine On
+
+#Hide Dynamic
+RewriteRule ^song/(.*)/ song.php?id=$1
+RewriteRule ^movie/(.*)/ movie.php?id=$1
+RewriteRule ^profile/(.*)/ profile.php?id=$1
+
+IndexIgnore .htaccess */.??* *~ *# */HEADER* */README* */_vti*
+
+<Limit GET POST>
+order deny,allow
+deny from all
+allow from all
+</Limit>
+<Limit PUT DELETE>
+order deny,allow
+deny from all
+</Limit>
+AuthName www.gamesource.biz
+AuthUserFile /home/gamesour/public_html/_vti_pvt/service.pwd
+AuthGroupFile /home/gamesour/public_html/_vti_pvt/service.grp
+
+AuthType Basic
+
+<Limit GET>
+order deny,allow
+deny from all
+</Limit>
+
+DirectoryIndex index.php

@@ -1,0 +1,9 @@
+</div>
+<div id="footer">
+<p>&copy; <a href="http://gamesource.biz/judgify/">Judgify</a> 2006: <a href="blog/index.php?blog">Judged Blog</a> | <a href="blog/index.php?announcements">Site Announcements</a> | <a href="help.php">Help</a> | <a href="dev/index.php">Developers</a> | <a href="about.php">About</a>
+| <a href="contact.php">Contact</a>
+</p>
+</div>
+</body>
+</html>
+<?php ob_end_flush(); ?>

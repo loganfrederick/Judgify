@@ -1,0 +1,12 @@
+<?php $title="Judgify- Terms of Service";
+include 'layout.html';
+echo'<div class="box">Sections: <a href="help.php">General Help</a> | <a href="help.php?use">Using Judgify</a> | <a href="help.php?boards">Boards</a></div>';
+if (isset($_GET['boards'])) echo'<p>More stuff</p>';
+else { 
+	echo'<h2>General Help</h2>
+	<ol><li><a href="help.php#1">How can I create an account?</a></li>
+	</ol>
+	<h3 class="headline"><a name="1">How can I create an account?</a></h3>';
+}
+include'footer.html';
+?>

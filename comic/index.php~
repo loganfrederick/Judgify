@@ -1,0 +1,7 @@
+<?php $title="The Jury: The Judgify Comic";
+include'../layout.html';
+
+echo'<h1>The Jury: The Judgify Comic</h1>';
+echo'<h2>Title</h2>';
+
+include '../footer.html';?>

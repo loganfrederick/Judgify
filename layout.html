@@ -1,0 +1,151 @@
+<?php include'security/config.php';
+constant_login();
+?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head><meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<title>
+<?php
+if(!isset($title)) $title="Judgify";
+echo $title ?>
+</title>
+<base href="http://gamesource.biz/judgify/" />
+
+<?php
+if(strpos($_SERVER['HTTP_USER_AGENT'], 'Opera')) {
+echo '<link rel="stylesheet" href="css/opera.css" type="text/css" />'; }
+else if (strpos($_SERVER['HTTP_USER_AGENT'], 'MSIE')==TRUE) { echo('<link rel="stylesheet" type="text/css" href="css/ie7.css">'); }
+else { echo('<link rel="stylesheet" href="css/judgify.css" type="text/css" />'); }
+
+/*
+switch ($browser->browser) {
+	case "IE":
+		switch ($browser->majorver) {
+			case 7: 
+				echo'<link rel="stylesheet" href="css/ie7.css" type="text/css" />';
+				break;
+			case 6:
+				echo '<link rel="stylesheet" href="css/ie7.css" type="text/css" />';
+				break;
+			case 5:
+				echo '<link rel="stylesheet" href="css/ie7.css" type="text/css" />';
+				break;
+			default:
+				echo '<link rel="stylesheet" href="css/ie7.css" type="text/css" />';
+				break;
+		}
+		break;
+	case "Firefox":
+		echo'<link rel="stylesheet" href="css/judgify.css" type="text/css" />';
+		break;
+	case "Mozilla":
+         	echo'<link rel="stylesheet" href="css/judgify.css" type="text/css" />';
+		break;
+	case "Opera":
+        	echo '<link rel="stylesheet" href="css/opera.css" type="text/css" />';
+		break;
+	default:
+		echo'<link rel="stylesheet" href="css/judgify.css" type="text/css" />';
+}*/
+?>
+
+<link rel="stylesheet" type="text/css" href="css/niftyCorners.css">
+<link rel="stylesheet" type="text/css" href="css/niftyPrint.css" media="print">
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="nifty.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+$("input.buttonAslidedown").click(function(){ $("div.contentToChange").find("div.reportform:hidden").slideDown("slow"); });
+$("input.buttonAslideup").click(function(){ $("div.contentToChange").find("div.reportform:visible").slideUp("slow"); });
+});
+
+$(document).ready(function(){
+$("input.buttonBslidedown").click(function(){ $("div.contentToChange").find("div.commentform:hidden").slideDown("slow"); });
+$("input.buttonBslideup").click(function(){ $("div.contentToChange").find("div.commentform:visible").slideUp("slow"); });
+});
+
+window.onload=function(){
+if(!NiftyCheck())
+    return;
+RoundedBottom("div#head","#FFFFFF","#C3D9FF");
+RoundedTop("div#footer","#FFFFFF","#C3D9FF");
+RoundedTop("div.postlist_head","#FFFFFF","#C3D9FF");
+Rounded("dl.catlist","#FFFFFF","#C3D9FF");
+Rounded("div#left dl","#FFFFFF","#C3D9FF");
+Rounded("div.homepost","#FFFFFF","#C3D9FF");
+Rounded("dl.center","#FFFFFF","#C3D9FF");
+Rounded("dl.splitcenter","#FFFFFF","#C3D9FF");
+Rounded("dl.comment","#FFFFFF","#C3D9FF");
+}
+</script>
+</head>
+<body>
+<div id="head">
+<h1>Judgify- Alpha</h1>
+</div>
+<div id="left">
+<dl><dt>Your Menu</dt>
+<dd><ul><li><a href="http://gamesource.biz/judgify/">Home</a></li>
+<li><a href="submit.php">Submit an Entry</a></li>
+<li><a href="forum/">Forums</a></li>
+<li><a href="help.php">Help</a></li>
+<?php
+if (isset($_COOKIE["judgify_login"])) {
+	$id=$_SESSION['id'];
+	echo'<li><a href="profile.php">Members</a></li>
+	<li><a href="profile/',$id,'/">Your Profile</a></li>
+	<li><a href="login.php?logout">Logout</a></li>';
+}
+?>
+</ul></dd></dl>
+
+<dl><dt>Sections</dt>
+<dd><ul><li><a href="random.php">Random Entry</a></li>
+<li><a href="new.php">New Entries</a></li>
+<li><a href="top.php">Most Popular</a></li>
+<li><a href="comic/">The Jury Comic</a></li>
+<li><a href="podcast/">Judged Radio</a></li>
+</ul></dd></dl>
+
+<dl><dt>Search</dt>
+<dd><div class="login_form"><form action="search.php" method="GET">
+<p>Search: <select name="cat"><option value="all">All</option><option value="user">Users</option><option value="tag">Tags</option><option value="song">Songs</option><option value="movie">Movie</option></select></p>
+<p><input name="entry" maxlength=50 /></p>
+<p><input type="submit" value="Submit" /></p>
+<p><a href="search.php">Advanced Search</a></form>
+</div></dd></dl>
+
+<?php
+if (!isset($_COOKIE["judgify_login"])) {
+	echo'<dl><dt>Login</dt>
+	<dd><div class="login_form"><form action="login.php" method="post"><p>Username: <input type="text" name="username" maxlength="30" /><br />
+	Password: <input type="password" name="password" maxlength="30" /><input type="submit" value="Submit" /></p></form>
+	<a href="login.php" class="leftlink">Forgot Password?</a> |<a href="register.php" class="leftlink">Register</a></div></dd></dl>';
+}
+?>
+
+<dl><dt>Categories</dt>
+<dd><ul><li><a href="cat.php">All Categories</a></li>
+<li><a href="movie.php">Movies</a></li>
+<li><a href="song.php">Songs</a></li>
+</ul></dd></dl>
+<?php
+if ($_SESSION['level']>=40 && isset($_COOKIE["judgify_login"])) {
+	echo'<dl><dt>Admin Panel</dt>
+	<dd><ul><li><a href="admin/index.php">Admin Page</a></li>
+	<li><a href="admin/modqueue.php">Entry Mod Queue</a></li>
+	<li><a href="admin/forumqueue.php">Forum Mod Queue</a></li>
+	</ul></dd></dl>';
+}
+?>
+</div>
+<div id="main">
+<?php
+if ($_SESSION['level']>=40 && isset($_COOKIE["judgify_login"])) {
+	$query=mysql_query("SELECT COUNT(*) FROM `modque`") or die(mysql_error());$count=mysql_fetch_row($query);
+	echo'<div class="announce">There are <a href="admin/modqueue.php">',$count[0],'</a> reports in the entry mod queue.</div>';
+	$query=mysql_query("SELECT COUNT(*) FROM `forumque`") or die(mysql_error());$count=mysql_fetch_row($query);
+	echo'<div class="announce">There are <a href="admin/forumqueue.php">',$count[0],'</a> reports in the entry forum queue.</div>';
+}
+if (isset($_GET['msg']) && in_array($_GET['msg'],$msgs)) echo'<div class="announce">Message: ',$_GET['msg'],'</div>';
+?>
