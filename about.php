@@ -19,7 +19,6 @@ if(isset($_GET['staff'])) {
 	<ul>
 	<li><a href="http://gamesource.biz/judgify/profile.php?id=7">"ApolloIV"</a>- There\'s not really much to tell you about him. A 15 year old living in the good old state of South Carolina. Nothing really that good to tell about the state besides the beaches are nice...and dirty. I\'m not really biased against a lot of music. Some of my favorites are Coheed and cambria, Bloc Party, Iced Earth, The Number 12 Looks Like You, SYL, The Mars Volta, Interpol, Dragonforce, Turbonegro, and The Flaming lips. On the movie side of things, I\'m probably not the person to ask.</li>
 	<li><a href="http://gamesource.biz/judgify/profile.php?id=12">"Karma"</a>- He legally changed his middle name to "Danger".</li>
-	<li><a href="http://gamesource.biz/judgify/profile.php?id=6">Andrew "YTMND"</a>- Andrew is a 16 year old moderator who, on a typical day, is collecting money from his local businesses, brothels, and from "Chance" cards he finds scattered throughout life. He has more friends on Myspace than any emo kid in the cyberverse. Interests include white and asian women.</li>
 	</ul>';
 	
 	echo'<h2>Special Thanks</h2>
